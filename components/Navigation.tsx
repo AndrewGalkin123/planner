@@ -6,7 +6,7 @@ interface NavigationProps {
   }
 
 const Navigation: React.FC<NavigationProps> = ({ items }) => {
-  return <Breadcrumb style={{fontWeight: "bold"}} items={items} />;
+  return <Breadcrumb style={{fontWeight: "bold", fontSize: "16px"}} items={items} />;
 };
 
 export { Navigation };
