@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Calendar, Tooltip, Modal } from "antd";
+import { Calendar, Tooltip } from "antd";
 import { Dayjs } from "dayjs";
 
 interface NoteCalendarProps {}
