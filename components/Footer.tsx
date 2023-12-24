@@ -5,7 +5,7 @@ import { Typography } from "antd";
 
 const { Title } = Typography;
 
-const Footer: React.Rc<> = () => {
+const Footer: React.FC = () => {
   return (
     <footer className="container">
       <Title style={{color: "white", fontWeight: "bold", margin: 0}} level={3}>Contacts :</Title>

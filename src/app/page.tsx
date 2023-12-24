@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Calendar, Tooltip } from "antd";
 import { Dayjs } from "dayjs";
+import { Tasks } from "../../components/Tasks";
 
 interface NoteCalendarProps {}
 
@@ -12,7 +13,7 @@ interface NotesState {
 
 export default function NoteCalendar({}: NoteCalendarProps) {
   const [notes, setNotes] = useState<NotesState>({});
-
+  let userNote: any;
   const dateCellRender = (date: Dayjs) => {
     const dateKey = date.format("YYYY-MM-DD");
     const dateNotes = notes[dateKey];
@@ -36,8 +37,8 @@ export default function NoteCalendar({}: NoteCalendarProps) {
     const dateKey = date.format("YYYY-MM-DD");
 
     // You can use Ant Design's Modal or any other UI component to get user input
-    
-    const userNote = prompt("Enter a note for this date:");
+
+    userNote = prompt("Enter a note for this date:");
 
     if (userNote !== null) {
       setNotes((prevNotes) => ({
@@ -48,8 +49,17 @@ export default function NoteCalendar({}: NoteCalendarProps) {
   };
 
   return (
-    <div>
-      <Calendar dateCellRender={dateCellRender} onSelect={onSelect} />
+    <div className="content">
+      <Calendar
+        cellRender={dateCellRender}
+        onSelect={(date, { source }) => {
+          if (source === "date") {
+            onSelect(date);
+            console.log(notes);
+          }
+        }}
+      />
+      <Tasks notes={notes}/>
     </div>
   );
 }

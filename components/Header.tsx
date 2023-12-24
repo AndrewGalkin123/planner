@@ -15,7 +15,7 @@ const Header = () => {
       title: <Link href="/about-us">About us</Link>,
     },
     {
-      title: <Link href="/more-info">More info</Link>,
+      title: <Link href="/more-info">Your Profile</Link>,
     },
   ];
   return (
