@@ -7,7 +7,10 @@ interface TasksProps {
 }
 
 const Tasks: React.FC<TasksProps> = ({ notes }) => {
-  const firstTenNotes = Object.values(notes).slice(0, 10).flat();
+  const sortedNotes = Object.fromEntries(
+    Object.entries(notes).sort(([a], [b]) => a.localeCompare(b))
+  );
+  const firstTenNotes = Object.values(sortedNotes).slice(0, 10).flat();
   return (
     <>
       <Title level={2}>Your upcoming tasks: </Title>

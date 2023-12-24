@@ -14,6 +14,8 @@ interface NotesState {
 export default function NoteCalendar({}: NoteCalendarProps) {
   const [notes, setNotes] = useState<NotesState>({});
   let userNote: any;
+
+
   const dateCellRender = (date: Dayjs) => {
     const dateKey = date.format("YYYY-MM-DD");
     const dateNotes = notes[dateKey];
@@ -32,7 +34,7 @@ export default function NoteCalendar({}: NoteCalendarProps) {
       </div>
     );
   };
-
+ 
   const onSelect = (date: Dayjs) => {
     const dateKey = date.format("YYYY-MM-DD");
 
@@ -55,11 +57,10 @@ export default function NoteCalendar({}: NoteCalendarProps) {
         onSelect={(date, { source }) => {
           if (source === "date") {
             onSelect(date);
-            console.log(notes);
           }
         }}
       />
-      <Tasks notes={notes}/>
+      <Tasks notes={notes} />
     </div>
   );
 }
