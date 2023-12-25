@@ -51,7 +51,7 @@ export default function NoteCalendar({}: NoteCalendarProps) {
   };
 
   return (
-    <div className="content">
+    <main className="content">
       <Calendar
         cellRender={dateCellRender}
         onSelect={(date, { source }) => {
@@ -61,6 +61,6 @@ export default function NoteCalendar({}: NoteCalendarProps) {
         }}
       />
       <Tasks notes={notes} />
-    </div>
+    </main>
   );
 }
